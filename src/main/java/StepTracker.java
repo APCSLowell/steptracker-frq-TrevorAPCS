@@ -12,7 +12,7 @@ public class StepTracker
 	public int activeDays(){
 		int aDays = 0;
 		for(int steps : days)
-			if(steps >= activeDays)
+			if(steps >= minSteps)
 				aDays++;
 		return aDays;
 	}
