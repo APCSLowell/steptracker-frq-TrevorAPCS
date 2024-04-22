@@ -20,6 +20,6 @@ public class StepTracker
 		int sum = 0;
 		for(int steps : days)
 			sum += steps;
-		return (double)steps/days.size();
+		return (double)sum/days.size();
 	}
 } 
