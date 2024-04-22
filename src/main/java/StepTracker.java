@@ -1,24 +1,25 @@
 import java.util.ArrayList;
 public class StepTracker
 {
- private int minSteps, activeDays, totalSteps, totalDays;
+ private ArrayList<Integer> days = new ArrayList<Integer>();
+ private int minSteps;
 	public StepTracker(int mSteps){
 		minSteps = mSteps;
 	}
 	public void addDailySteps(int steps){
-		totalSteps += steps;
-		totalDays++;
-		if(steps >= minSteps){
-			activeDays++;
-		}
+		days.add(steps);
 	}
 	public int activeDays(){
-		return activeDays;
+		int aDays = 0;
+		for(int steps : days)
+			if(steps >= activeDays)
+				aDays++;
+		return aDays;
 	}
-	public int averageSteps(){
-		if(totalDays == 0){
-      			return 0;
-    		}
-		return totalSteps / totalDays;
+	public double averageSteps(){
+		int sum = 0;
+		for(int steps : days)
+			sum += steps;
+		return (double)steps/days.size();
 	}
 } 
